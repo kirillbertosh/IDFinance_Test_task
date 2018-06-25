@@ -1,4 +1,6 @@
-package by.idFinance.bertosh.model;
+package com.idFinance.bertosh.model;
+
+import com.idFinance.bertosh.constants.Status;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -18,7 +20,7 @@ public class Request {
     @Column
     private Date dueDate;
     @Column
-    private String status;
+    private Status status;
 
     public Request() {
 
@@ -56,11 +58,11 @@ public class Request {
         this.dueDate = dueDate;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
