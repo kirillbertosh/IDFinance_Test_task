@@ -2,6 +2,7 @@ package com.idFinance.bertosh.controllers;
 
 import com.idFinance.bertosh.model.Request;
 import com.idFinance.bertosh.repositories.RequestRepository;
+import com.idFinance.bertosh.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,8 @@ public class ClientController {
 
     @Autowired
     private RequestRepository repository;
+    @Autowired
+    private ClientService service;
 
     @GetMapping("/status/{id}")
     public ResponseEntity findRequest(@PathVariable Long id) {
@@ -28,7 +31,7 @@ public class ClientController {
 
     @PostMapping
     public ResponseEntity save(@RequestBody Request request) {
-        request = repository.save(request);
+        request = service.save(request);
         return new ResponseEntity<>(request, HttpStatus.CREATED);
     }
 }

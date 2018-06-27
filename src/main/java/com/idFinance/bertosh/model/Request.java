@@ -1,5 +1,6 @@
 package com.idFinance.bertosh.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.idFinance.bertosh.constants.Status;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class Request {
     @Column
     private Date dueDate;
     @Column
+    @JsonIgnore
     private Status status;
 
     public Request() {
